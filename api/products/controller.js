@@ -13,3 +13,13 @@ module.exports.post = (req, res) => {
     .then(product => res.send(product))
     .catch(err => res.send(err));
 };
+
+module.exports.delete = (req, res) => {
+  models.products
+
+    .findOne({ where: { id: req.params.id } })
+
+    .then(products => products.destroy().then(product => res.send("success")))
+    .catch(rr => console.log(err))
+    .catch(err => console.log(err));
+};
